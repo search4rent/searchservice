@@ -4,18 +4,25 @@
                              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
     <servlet>
-        <servlet-name>search-service-servlet</servlet-name>
+        <servlet-name>search</servlet-name>
         <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>com.search4rent.search.service.resources;</param-value>
+            <param-value>
+                com.search4rent.search.service.resources;
+            </param-value>
         </init-param>
-        </servlet>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.resourceConfigClass</param-name>
+            <param-value>com.sun.jersey.api.core.PackagesResourceConfig</param-value>
+        </init-param>
+        <load-on-startup>20</load-on-startup>
+    </servlet>
     <listener>
-        <listener-class>com.search4rent.search.service.ElasticSearchConnectionListener</listener-class>
+        <listener-class>com.search4rent.search.service.elasticsearch.ElasticSearchConnectionListener</listener-class>
     </listener>
     <servlet-mapping>
-        <servlet-name>search-service-servlet</servlet-name>
-        <url-pattern>/v1/*</url-pattern>
+        <servlet-name>search</servlet-name>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
 </web-app>

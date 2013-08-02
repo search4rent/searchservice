@@ -6,11 +6,19 @@ import org.elasticsearch.index.query.QueryBuilders
 import org.elasticsearch.index.query.QueryStringQueryBuilder.Operator
 import com.search4rent.search.service.elasticsearch._
 import com.search4rent.search.service.resquest.{SuggestList, SuggestResponseObject}
+import org.elasticsearch.client.Client
 
 /**
  * Trait that performs a search in the suggest index and returns the result.
  */
-trait SuggestSearch {
+
+
+trait ESClient {
+  def client: Client
+}
+
+
+trait SuggestSearch extends ESClient{
   private val MAX_LIMIT = 100
   private val SRC_URL_KEY = "picture"
   private val SRC_NAME = "name"
@@ -19,7 +27,6 @@ trait SuggestSearch {
   private val HIGHLIGHT_END = "</em>";
   val limit = 3
 
-  val client = ElasticSearchClient.client
 
   def escape(str: String) = {
     if (str == null)

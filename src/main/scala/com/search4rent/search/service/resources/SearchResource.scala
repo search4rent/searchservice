@@ -21,16 +21,17 @@ import com.search4rent.search.service.resquest.RentItem
 @Path("/search4rent")
 @Produces(Array(APPLICATION_JSON))
 @Consumes(Array(APPLICATION_JSON))
-class SearchResource extends SuggestSearch with ItemSearch {
+class SearchResource extends SuggestSearch with ItemSearch with Indexer {
 
 
   @POST
   @Path("-/insert/")
-  @Consumes(Array(APPLICATION_JSON))
-  def setItem(item: RentItem,
-              @Context headers: HttpHeaders) = {
-    val locale = if (headers.getLanguage() == null) Locale.US else headers.getLanguage()
-    Response.ok(List(Json.generate(item), Json.generate(item))).build()
+  def setItem(item: String) = {
+    //val locale = if (headers.getLanguage() == null) Locale.US else headers.getLanguage()
+
+    val rentItem = Json.parse[RentItem](item)
+    indexer(rentItem).execute().actionGet()
+    Response.ok(rentItem.id).build()
   }
 
   @GET

@@ -2,6 +2,7 @@ package com.search4rent.search.service.resquest
 
 import java.util.UUID
 import org.elasticsearch.common.geo.GeoPoint
+import javax.xml.bind.annotation.XmlRootElement
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,6 +21,7 @@ case class SuggestList(
                         total: Long,
                         items: List[SuggestResponseObject]
                         )
+
 
 case class RentItem(
                      id: UUID,

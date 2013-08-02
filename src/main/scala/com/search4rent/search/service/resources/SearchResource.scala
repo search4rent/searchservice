@@ -1,7 +1,7 @@
 package com.search4rent.search.service.resources
 
 import com.search4rent.search.service._
-import javax.ws.rs.core.{Response, Context, HttpHeaders}
+import javax.ws.rs.core.{MediaType, Response, Context, HttpHeaders}
 import javax.ws.rs._
 import scala.Array
 import java.util.Locale
@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType._
 import com.codahale.jerkson.Json
 import org.elasticsearch.client.Client
 import com.search4rent.search.service.elasticsearch.ElasticSearchClient
+import com.search4rent.search.service.resquest.RentItem
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,7 +21,17 @@ import com.search4rent.search.service.elasticsearch.ElasticSearchClient
 @Path("/search4rent")
 @Produces(Array(APPLICATION_JSON))
 @Consumes(Array(APPLICATION_JSON))
-class SearchResource extends SuggestSearch with ItemSearch{
+class SearchResource extends SuggestSearch with ItemSearch {
+
+
+  @POST
+  @Path("-/insert/")
+  @Consumes(Array(APPLICATION_JSON))
+  def setItem(item: RentItem,
+              @Context headers: HttpHeaders) = {
+    val locale = if (headers.getLanguage() == null) Locale.US else headers.getLanguage()
+    Response.ok(List(Json.generate(item), Json.generate(item))).build()
+  }
 
   @GET
   @Path("-/item/{id}")

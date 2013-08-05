@@ -9,7 +9,7 @@
         <init-param>
             <param-name>com.sun.jersey.config.property.packages</param-name>
             <param-value>
-                com.search4rent.search.service.resources;
+                com.randl.search.service.resources;
             </param-value>
         </init-param>
         <init-param>
@@ -19,7 +19,7 @@
         <load-on-startup>20</load-on-startup>
     </servlet>
     <listener>
-        <listener-class>com.search4rent.search.service.elasticsearch.ElasticSearchConnectionListener</listener-class>
+        <listener-class>com.randl.search.service.elasticsearch.ElasticSearchConnectionListener</listener-class>
     </listener>
     <servlet-mapping>
         <servlet-name>search</servlet-name>

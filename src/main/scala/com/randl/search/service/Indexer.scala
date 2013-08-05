@@ -1,6 +1,6 @@
-package com.search4rent.search.service
+package com.randl.search.service
 
-import com.search4rent.search.service.resquest.RentItem
+import com.randl.search.service.resquest.RentItem
 import com.codahale.jerkson.Json
 import org.elasticsearch.action.bulk.{BulkRequestBuilder}
 

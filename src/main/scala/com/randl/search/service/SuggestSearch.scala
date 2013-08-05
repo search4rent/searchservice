@@ -1,11 +1,11 @@
-package com.search4rent.search.service
+package com.randl.search.service
 
 import java.util.Locale
 import scala.math.min
 import org.elasticsearch.index.query.QueryBuilders
 import org.elasticsearch.index.query.QueryStringQueryBuilder.Operator
-import com.search4rent.search.service.elasticsearch._
-import com.search4rent.search.service.resquest.{SuggestList, SuggestResponseObject}
+import com.randl.search.service.elasticsearch._
+import com.randl.search.service.resquest.{SuggestList, SuggestResponseObject}
 import org.elasticsearch.client.Client
 
 /**

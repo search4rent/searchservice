@@ -1,7 +1,7 @@
-package com.search4rent.search.service
+package com.randl.search.service
 
-import com.search4rent.search.service.elasticsearch.ElasticSearchClient
-import com.search4rent.search.service.resquest.RentItem
+import com.randl.search.service.elasticsearch.ElasticSearchClient
+import com.randl.search.service.resquest.RentItem
 import org.apache.lucene.queryparser.flexible.core.builders.QueryBuilder
 import org.elasticsearch.index.query.QueryBuilders
 import java.util.UUID

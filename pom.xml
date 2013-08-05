@@ -4,14 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>search4rent</groupId>
-    <artifactId>search4rent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>com.randl.search</groupId>
+    <artifactId>searchservice</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
     <packaging>war</packaging>
-    <!--packaging>war</packaging-->
+
     <properties>
         <scala.version>2.9.1</scala.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.codahale</groupId>
@@ -35,33 +37,6 @@
         </dependency>
 
     </dependencies>
-    <repositories>
-        <repository>
-            <id>scala-tools.org</id>
-            <name>Scala-tools Maven2 Repository</name>
-            <url>http://scala-tools.org/repo-releases</url>
-        </repository>
-        <repository>
-            <id>google-api-services</id>
-            <url>https://oss.sonatype.org/content/repositories/releases/</url>
-        </repository>
-        <repository>
-            <id>google-api-services-beta</id>
-            <url>http://google-api-client-libraries.appspot.com/mavenrepo</url>
-        </repository>
-        <repository>
-            <id>maven2-repository.dev.java.net</id>
-            <name>Java.net Repository for Maven</name>
-            <url>http://download.java.net/maven/2/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <id>maven-repository.dev.java.net</id>
-            <name>Java.net Maven 1 Repository (legacy)</name>
-            <url>http://download.java.net/maven/1</url>
-            <layout>legacy</layout>
-        </repository>
-    </repositories>
 
     <build>
         <plugins>

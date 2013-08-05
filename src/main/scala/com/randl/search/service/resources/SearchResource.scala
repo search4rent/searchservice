@@ -1,6 +1,6 @@
-package com.search4rent.search.service.resources
+package com.randl.search.service.resources
 
-import com.search4rent.search.service._
+import com.randl.search.service._
 import javax.ws.rs.core.{MediaType, Response, Context, HttpHeaders}
 import javax.ws.rs._
 import scala.Array
@@ -8,17 +8,10 @@ import java.util.Locale
 import javax.ws.rs.core.MediaType._
 import com.codahale.jerkson.Json
 import org.elasticsearch.client.Client
-import com.search4rent.search.service.elasticsearch.ElasticSearchClient
-import com.search4rent.search.service.resquest.RentItem
+import com.randl.search.service.elasticsearch.ElasticSearchClient
+import com.randl.search.service.resquest.RentItem
 
-/**
- * Created with IntelliJ IDEA.
- * User: cgonzalez
- * Date: 7/22/13
- * Time: 12:01 PM
- * To change this template use File | Settings | File Templates.
- */
-@Path("/search4rent")
+@Path("/search")
 @Produces(Array(APPLICATION_JSON))
 @Consumes(Array(APPLICATION_JSON))
 class SearchResource extends SuggestSearch with ItemSearch with Indexer {

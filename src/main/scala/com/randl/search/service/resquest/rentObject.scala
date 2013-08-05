@@ -1,4 +1,4 @@
-package com.search4rent.search.service.resquest
+package com.randl.search.service.resquest
 
 import java.util.UUID
 import org.elasticsearch.common.geo.GeoPoint

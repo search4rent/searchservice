@@ -20,7 +20,8 @@
             "tokenizer": "standard",
             "filter": [
               "asciifolding",
-              "lowercase"
+              "lowercase",
+              "name_ngram"
             ]
           }
         },

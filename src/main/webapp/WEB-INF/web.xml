@@ -9,7 +9,7 @@
         <init-param>
             <param-name>com.sun.jersey.config.property.packages</param-name>
             <param-value>
-                com.randl.search.service.resources;
+                com.codahale.jersey.providers;com.codahale.jersey.inject;com.randl.search.service.resources;
             </param-value>
         </init-param>
         <init-param>

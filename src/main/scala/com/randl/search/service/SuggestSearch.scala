@@ -108,7 +108,7 @@ trait SuggestSearch extends ESClient{
       )
       SuggestResponseObject(
         id = hit.getId(),
-        link = hit.getSource().get(SRC_URL_KEY).asInstanceOf[java.util.List[String]].toList,
+        link = List(), //hit.getSource().get(SRC_URL_KEY).asInstanceOf[java.util.List[String]].toList,
         score = hit.getScore(),
         title = map)
     }))

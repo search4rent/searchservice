@@ -14,7 +14,7 @@ import com.randl.search.service.resquest.RentItem
 @Path("/search")
 @Produces(Array(APPLICATION_JSON))
 @Consumes(Array(APPLICATION_JSON))
-class SearchResource extends SuggestSearch with ItemSearch with Indexer {
+class SearchResource extends TotalSearch with ItemSearch with Indexer {
 
 
   @POST
@@ -37,9 +37,22 @@ class SearchResource extends SuggestSearch with ItemSearch with Indexer {
     Response.ok(result).build()
   }
 
+  @GET
+  @Path("-/search/{input}/{init}/{end}")
+  def getItems(
+                @PathParam("input") input: String,
+                @PathParam("init") init: Int,
+                @PathParam("end") end: Int,
+                @Context headers: HttpHeaders
+                ) = {
+    val locale = if (headers.getLanguage() == null) Locale.US else headers.getLanguage()
+    val result = totalSearch(locale, input, init, end)
+    Response.ok(result).build()
+  }
+
 
   @GET
-  @Path("-/input/{input}")
+  @Path("-/suggest/{input}")
   def search(
               @PathParam("input") input: String,
               @Context headers: HttpHeaders) = {

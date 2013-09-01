@@ -1,8 +1,6 @@
 package com.randl.search.service
 
-import com.randl.search.service.elasticsearch.ElasticSearchClient
 import com.randl.search.service.resquest.RentItem
-import org.apache.lucene.queryparser.flexible.core.builders.QueryBuilder
 import org.elasticsearch.index.query.QueryBuilders
 import java.util.UUID
 import org.elasticsearch.common.geo.GeoPoint
@@ -29,7 +27,7 @@ trait ItemSearch extends ESClient{
         location = head.getSource.get("location").asInstanceOf[GeoPoint],
         name = head.getSource.get("name").asInstanceOf[String],
         picture = head.getSource.get("picture").asInstanceOf[java.util.List[String]].toList,
-        price = head.getSource.get("price").asInstanceOf[Double],
+        price = head.getSource.get("price").asInstanceOf[Int],
         category = head.getSource.get("picture").asInstanceOf[java.util.List[String]].toList,
         user = UUID.fromString(head.getSource.get("user").asInstanceOf[String])
       )

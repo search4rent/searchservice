@@ -49,7 +49,7 @@ class SearchResource extends SuggestSearch with ItemSearch with Indexer {
 
     val suggestResponse = result
     suggestResponse
-    Response.ok(Json.generate(suggestResponse)).build()
+    Response.ok(suggestResponse).build()
   }
 
   def client: Client = ElasticSearchClient.client

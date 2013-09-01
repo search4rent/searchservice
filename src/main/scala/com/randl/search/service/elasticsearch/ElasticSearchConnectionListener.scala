@@ -27,7 +27,7 @@ object ElasticSearchClient {
   lazy val settingDev = ImmutableSettings.settingsBuilder();
   settingDev.put("node.name", "Lasher")
   settingDev.put("discovery.zen.ping.multicast.enabled", false)
-  settingDev.put("discovery.zen.ping.unicast.hosts", "88.198.107.99:9300")
+  settingDev.put("discovery.zen.ping.unicast.hosts", "localhost:9300")
 
   def init() {
     node = NodeBuilder.nodeBuilder().client(true).clusterName("elasticsearch").settings(settingDev).node()

@@ -19,10 +19,10 @@ class SearchResource extends SuggestSearch with ItemSearch with Indexer {
 
   @POST
   @Path("-/insert/")
-  def setItem(item: String) = {
+  def setItem(rentItem: RentItem) = {
     //val locale = if (headers.getLanguage() == null) Locale.US else headers.getLanguage()
 
-    val rentItem = Json.parse[RentItem](item)
+    //val rentItem = Json.parse[RentItem](item)
     indexer(rentItem).execute().actionGet()
     Response.ok(rentItem.id).build()
   }
@@ -34,7 +34,7 @@ class SearchResource extends SuggestSearch with ItemSearch with Indexer {
                @Context headers: HttpHeaders) = {
     val locale = if (headers.getLanguage() == null) Locale.US else headers.getLanguage()
     val result = getItemES(id)
-    Response.ok(Json.generate(result)).build()
+    Response.ok(result).build()
   }
 
 

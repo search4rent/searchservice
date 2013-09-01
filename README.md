@@ -1,6 +1,6 @@
-*** Insert new Item
+<h2>Insert new Item</h2>
 
-http://line030.de:8181/searchservice-0.0.1-SNAPSHOT/search/-/item/63ae0c63-2342-4bb0-9b16-914001ad7d0f
+http://line030.de:8181/searchservice-0.0.1-SNAPSHOT/search/-/item/{id}
 
 ```js
 {
@@ -15,9 +15,9 @@ http://line030.de:8181/searchservice-0.0.1-SNAPSHOT/search/-/item/63ae0c63-2342-
 }
 ```
 
-*** Listing
+<h2>Listing</h2>
 
-http://localhost:8080/searchservice-0.0.1-SNAPSHOT/search/-/search/{name}/{init}/{end}
+http://line030.de:8181/searchservice-0.0.1-SNAPSHOT/search/-/search/{name}/{init}/{end}
 
 ```js
 {

@@ -3,6 +3,7 @@ package com.randl.search.service
 import com.randl.search.service.resquest.RentItem
 import com.codahale.jerkson.Json
 import org.elasticsearch.action.bulk.{BulkRequestBuilder}
+import com.randl.core.servicelib.elasticsearch.ESClient
 
 /**
  * Created with IntelliJ IDEA.

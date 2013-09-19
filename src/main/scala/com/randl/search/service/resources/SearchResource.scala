@@ -1,14 +1,11 @@
 package com.randl.search.service.resources
 
 import com.randl.search.service._
-import javax.ws.rs.core.{MediaType, Response, Context, HttpHeaders}
+import javax.ws.rs.core.{Response, Context, HttpHeaders}
 import javax.ws.rs._
 import scala.Array
 import java.util.Locale
 import javax.ws.rs.core.MediaType._
-import com.codahale.jerkson.Json
-import org.elasticsearch.client.Client
-import com.randl.search.service.elasticsearch.ElasticSearchClient
 import com.randl.search.service.resquest.RentItem
 
 @Path("/search")
@@ -65,5 +62,4 @@ class SearchResource extends TotalSearch with ItemSearch with Indexer {
     Response.ok(suggestResponse).build()
   }
 
-  def client: Client = ElasticSearchClient.client
 }

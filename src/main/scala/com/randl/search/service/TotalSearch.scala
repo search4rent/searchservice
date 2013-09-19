@@ -25,25 +25,26 @@ trait TotalSearch extends SuggestSearch {
 
       case head :: tail =>
 
-          (head :: tail).map(
-            x => {
-              val price: jDouble = x.getSource.get("price") match {
-                case y: java.lang.Integer => new jDouble(y * 1.0)
-                case _ => head.getSource.get("price").asInstanceOf[jDouble]
-              }
-              val description = x.getSource.get("description").asInstanceOf[String]
-              RentItem(
-                id = UUID.fromString(x.id()),
-                description = if (description.size < 140) description else description.substring(0, 140).concat("..."),
-                location = x.getSource.get("location").asInstanceOf[GeoPoint],
-                name = x.getSource.get("name").asInstanceOf[String],
-                picture = x.getSource.get("picture").asInstanceOf[java.util.List[String]].toList,
-                price = price,
-                category = x.getSource.get("picture").asInstanceOf[java.util.List[String]].toList,
-                user = UUID.fromString(x.getSource.get("user").asInstanceOf[String])
-              )
+        (head :: tail).map(
+          x => {
+            val price: jDouble = x.getSource.get("price") match {
+              case y: java.lang.Integer => new jDouble(y * 1D)
+              case y: jDouble => y
+              case _ => 0
             }
-          )
+            val description = x.getSource.get("description").asInstanceOf[String]
+            RentItem(
+              id = UUID.fromString(x.id()),
+              description = if (description.size < 140) description else description.substring(0, 140).concat("..."),
+              location = x.getSource.get("location").asInstanceOf[GeoPoint],
+              name = x.getSource.get("name").asInstanceOf[String],
+              picture = x.getSource.get("picture").asInstanceOf[java.util.List[String]].toList,
+              price = price,
+              category = x.getSource.get("picture").asInstanceOf[java.util.List[String]].toList,
+              user = UUID.fromString(x.getSource.get("user").asInstanceOf[String])
+            )
+          }
+        )
       case _ => List.empty
 
     }

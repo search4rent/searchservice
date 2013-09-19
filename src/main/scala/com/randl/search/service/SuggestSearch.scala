@@ -4,18 +4,12 @@ import java.util.Locale
 import scala.math.min
 import org.elasticsearch.index.query.QueryBuilders
 import org.elasticsearch.index.query.QueryStringQueryBuilder.Operator
-import com.randl.search.service.elasticsearch._
 import com.randl.search.service.resquest.{SuggestList, SuggestResponseObject}
-import org.elasticsearch.client.Client
+import com.randl.core.servicelib.elasticsearch.ESClient
 
 /**
  * Trait that performs a search in the suggest index and returns the result.
  */
-
-
-trait ESClient {
-  def client: Client
-}
 
 
 trait SuggestSearch extends ESClient {
@@ -33,7 +27,7 @@ trait SuggestSearch extends ESClient {
       str
 
     var escapedStr = str
-    for (seq <- ElasticSearchClient.ESCAPED_SEQUENCES) {
+    for (seq <- ESCAPED_SEQUENCES) {
       escapedStr = escapedStr.replace(seq._1, seq._2)
     }
     escapedStr
@@ -90,7 +84,6 @@ trait SuggestSearch extends ESClient {
     val search = search1.execute();
     val hits = search.actionGet().getHits();
 
-    import scala.collection.JavaConversions._
     val suggestResult = SuggestList(hits.getTotalHits(), hits.getHits().toList.map(hit => {
       val name = Option(hit.getHighlightFields.get("name")) match {
         case Some(x) => x.fragments().map(_.toString).toList

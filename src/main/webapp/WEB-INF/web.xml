@@ -19,7 +19,7 @@
         <load-on-startup>20</load-on-startup>
     </servlet>
     <listener>
-        <listener-class>com.randl.search.service.elasticsearch.ElasticSearchConnectionListener</listener-class>
+        <listener-class>com.randl.core.servicelib.elasticsearch.ElasticSearchConnectionListener</listener-class>
     </listener>
     <servlet-mapping>
         <servlet-name>search</servlet-name>

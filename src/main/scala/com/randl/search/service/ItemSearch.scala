@@ -5,6 +5,7 @@ import org.elasticsearch.index.query.QueryBuilders
 import java.util.UUID
 import org.elasticsearch.common.geo.GeoPoint
 import java.lang.{Double => jDouble}
+import com.randl.core.servicelib.elasticsearch.ESClient
 
 /**
  * Created with IntelliJ IDEA.

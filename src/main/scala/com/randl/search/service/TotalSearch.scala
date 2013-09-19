@@ -21,10 +21,10 @@ trait TotalSearch extends SuggestSearch {
       .setTypes("item")
       .setQuery(queryBool(searchString))
       .setFrom(init).setSize(end).execute().actionGet()
-    search.getHits.getHits.toList match {
+    val list = search.getHits.getHits.toList match {
 
       case head :: tail =>
-        TotalSearchResponse(search.getHits.getTotalHits,
+
           (head :: tail).map(
             x => {
               val price: jDouble = x.getSource.get("price") match {
@@ -44,9 +44,9 @@ trait TotalSearch extends SuggestSearch {
               )
             }
           )
-        )
-      case _ => TotalSearchResponse(search.getHits.getTotalHits, List.empty)
+      case _ => List.empty
 
     }
+    TotalSearchResponse(search.getHits.getTotalHits, list)
   }
 }

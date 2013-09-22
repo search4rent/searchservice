@@ -14,11 +14,8 @@ import com.randl.core.servicelib.elasticsearch.ESClient
 
 trait SuggestSearch extends ESClient {
   private val MAX_LIMIT = 100
-  private val SRC_URL_KEY = "picture"
-  private val SRC_NAME = "name"
+  protected val SRC_NAME = "name"
   private val SRC_PARENTS_NAME = "description"
-  private val HIGHLIGHT_START = "<em>";
-  private val HIGHLIGHT_END = "</em>";
   val limit = 3
 
 

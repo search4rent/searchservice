@@ -11,18 +11,9 @@ import com.randl.search.service.resquest.RentItem
 @Path("/search")
 @Produces(Array(APPLICATION_JSON))
 @Consumes(Array(APPLICATION_JSON))
-class SearchResource extends TotalSearch with ItemSearch with Indexer {
+class SearchResource extends TotalSearch with ItemSearch  {
 
 
-  @POST
-  @Path("-/insert/")
-  def setItem(rentItem: RentItem) = {
-    //val locale = if (headers.getLanguage() == null) Locale.US else headers.getLanguage()
-
-    //val rentItem = Json.parse[RentItem](item)
-    indexer(rentItem).execute().actionGet()
-    Response.ok(rentItem.id).build()
-  }
 
   @GET
   @Path("-/item/{id}")

@@ -1,6 +1,6 @@
 <h2>Insert new Item</h2>
 
-http://line030.de:8181/searchservice-0.0.1-SNAPSHOT/search/-/item/{id}
+http://line030.de:8181/addItem-0.0.1-SNAPSHOT/search/-/item/{id}
 
 ```js
 {

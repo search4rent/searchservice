@@ -29,6 +29,11 @@
             <id>repo.codahale.com</id>
             <url>http://repo.codahale.com</url>
         </repository>
+        <repository>
+            <id>typesafe</id>
+            <url>http://repo.typesafe.com/typesafe/maven-releases</url>
+        </repository>
+
     </repositories>
 
     <build>

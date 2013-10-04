@@ -1,7 +1,7 @@
 
 <h2>Listing</h2>
 
-http://line030.de:8181/searchservice-0.0.1-SNAPSHOT/search/-/search/{name}/{init}/{end}
+http://line030.de:8181/searchservice/search/-/search/{name}/{init}/{end}
 
 ```js
 {

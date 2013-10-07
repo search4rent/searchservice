@@ -7,6 +7,7 @@ import scala.Array
 import java.util.Locale
 import javax.ws.rs.core.MediaType._
 import com.randl.search.service.resquest.RentItem
+import com.randl.search.service.operations.{TotalSearch, ItemSearch}
 
 @Path("/search")
 @Produces(Array(APPLICATION_JSON))
@@ -53,4 +54,6 @@ class SearchResource extends TotalSearch with ItemSearch  {
     Response.ok(suggestResponse).build()
   }
 
+  val indexES: String = "rendl"
+  val typeES: String = "items"
 }

@@ -1,4 +1,4 @@
-package com.randl.search.service
+package com.randl.search.service.operations
 
 import com.randl.search.service.resquest.RentItem
 import org.elasticsearch.index.query.QueryBuilders

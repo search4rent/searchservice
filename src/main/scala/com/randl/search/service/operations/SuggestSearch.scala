@@ -1,4 +1,4 @@
-package com.randl.search.service
+package com.randl.search.service.operations
 
 import java.util.Locale
 import scala.math.min
@@ -6,6 +6,10 @@ import org.elasticsearch.index.query.QueryBuilders
 import org.elasticsearch.index.query.QueryStringQueryBuilder.Operator
 import com.randl.search.service.resquest.{SuggestList, SuggestResponseObject}
 import com.randl.core.servicelib.elasticsearch.ESClient
+import com.randl.search.service._
+import com.randl.search.service.resquest.SuggestResponseObject
+import com.randl.search.service.resquest.SuggestList
+import scala.Some
 
 /**
  * Trait that performs a search in the suggest index and returns the result.

@@ -1,4 +1,4 @@
-package com.randl.search.service
+package com.randl.search.service.operations
 
 import java.util.{UUID, Locale}
 import com.randl.search.service.resquest.RentItem

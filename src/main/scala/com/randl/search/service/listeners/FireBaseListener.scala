@@ -15,23 +15,25 @@ object FireBaseListener extends Indexer {
   val indexES = "rendl"
   val typeES= "items"
   def init() = {
-    println("inicialization fo the FireBase Listener")
+    println("initialization fo the FireBase Listener")
     val usersRef = new Firebase("https://randl-backend.firebaseio.com/");
     usersRef.addChildEventListener(new ChildEventListener() {
       @Override
       def onChildAdded(snapshot: DataSnapshot, previousChildName: String) {
-        println(snapshot.getName())
+        println("item added: "+ snapshot.getName)
+        indexer(snapshot.getValue)
       }
 
       @Override
       def onChildChanged(snapshot: DataSnapshot, previousChildName: String) {
-        val userName = snapshot.getName();
-        val firstName = snapshot.child("name/first").getValue().asInstanceOf[String];
+        println("item update: "+ snapshot.getName)
+        indexer(snapshot.getValue)
       }
 
       @Override
       def onChildRemoved(snapshot: DataSnapshot) {
-
+        println("item delete: "+ snapshot.getName)
+         delete(snapshot.getValue)
       }
 
       @Override

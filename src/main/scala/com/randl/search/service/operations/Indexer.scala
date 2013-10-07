@@ -25,14 +25,14 @@ trait Indexer extends ESClient {
       description = map.getOrElse("description", "-").asInstanceOf[String],
       location = null,
       name = map.getOrElse("name", "-").asInstanceOf[String],
-      picture = map.getOrElse("description", "-").asInstanceOf[java.util.ArrayList[String]].toList,
+      picture = map.getOrElse("picture", new java.util.ArrayList).asInstanceOf[java.util.ArrayList[String]].toList,
       price = map.getOrElse("price", "0") match {
         case y: java.lang.Long => new jDouble(y * 1D)
         case y: jDouble => y
         case _ => 0
       },
-      category = map.getOrElse("description", "-").asInstanceOf[java.util.ArrayList[String]].toList,
-      user = UUID.fromString(map.getOrElse("id", "-").asInstanceOf[String])
+      category = map.getOrElse("category", new java.util.ArrayList).asInstanceOf[java.util.ArrayList[String]].toList,
+      user = UUID.fromString(map.getOrElse("user", "-").asInstanceOf[String])
     )
 
   }
